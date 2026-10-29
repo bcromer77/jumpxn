@@ -6,10 +6,10 @@ import { Menu, X } from 'lucide-react';
 import { CURRENCIES, usePlayer, type CurrencyCode } from '@/components/providers';
 
 const NAV = [
-  { href: '/#arenas', label: '01 / Pick Your Ride', cls: 'text-gold font-semibold' },
-  { href: '/#hardware', label: '02 / Pack 2.0 Ramp', cls: '' },
+  { href: '/#sizzle-toy', label: '01 / Slow-Mo Toy', cls: 'text-gold font-semibold' },
+  { href: '/#arenas', label: '02 / 5 Sports', cls: '' },
   { href: '/#cheatcodes', label: '03 / 4 Pro Secrets', cls: 'text-copper font-semibold' },
-  { href: '/#real2see', label: '04 / Slow-Mo Replay', cls: '' },
+  { href: '/#real2see', label: '04 / Replay Studio', cls: '' },
   { href: '/#powerups', label: '05 / Voice Coach', cls: 'text-sky font-semibold', ping: true },
   { href: '/#skilltree', label: '06 / Level Up', cls: '' },
   { href: '/jump-zone', label: 'Jump Zone', cls: '' },
@@ -17,7 +17,7 @@ const NAV = [
 
 export function Logo({ small = false }: { small?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-3 group">
+    <Link href="/" className="flex items-center gap-3 group shrink-0">
       <div
         className={`${
           small ? 'w-7 h-7 text-sm rounded' : 'w-9 h-9 text-xl rounded-lg'
@@ -30,7 +30,7 @@ export function Logo({ small = false }: { small?: boolean }) {
           <span className="font-display font-extrabold text-2xl tracking-tight text-white block leading-none">
             JUMPXN
           </span>
-          <span className="font-mono text-[9px] tracking-[0.22em] text-titanium block mt-0.5">
+          <span className="font-mono text-[9px] tracking-[0.22em] text-titanium block mt-0.5 whitespace-nowrap">
             REAL-LIFE FLIGHT GAME
           </span>
         </div>
@@ -85,39 +85,35 @@ export function SiteHeader() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-20 flex items-center justify-between gap-4">
           <Logo />
 
-          <nav className="hidden xl:flex items-center gap-6 text-sm font-medium text-titanium">
+          <nav className="hidden xl:flex items-center gap-5 text-xs font-mono uppercase tracking-wider text-titanium">
             {NAV.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
-                className={`hover:text-white transition flex items-center gap-1.5 ${n.cls}`}
+                className={`hover:text-white transition flex items-center gap-1.5 whitespace-nowrap ${n.cls}`}
               >
                 {n.ping && <span className="w-2 h-2 rounded-full bg-sky animate-ping" />}
                 {n.label}
               </Link>
             ))}
-            <Link href="/#giveaway" className="text-gold hover:text-white transition flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Win A Ramp
-            </Link>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex px-3.5 py-2 rounded-full bg-emerald/15 border border-emerald/40 text-emerald font-mono text-[11px] uppercase tracking-wider items-center gap-2">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <div className="hidden sm:flex px-3.5 py-2 rounded-full bg-emerald/15 border border-emerald/40 text-emerald font-mono text-[11px] uppercase tracking-wider items-center gap-1.5 whitespace-nowrap shrink-0">
               <span>
                 ⚡ <strong>{xp.toLocaleString('en-US')}</strong> XP • LVL {String(level).padStart(2, '0')}
               </span>
             </div>
             <Link
               href={session?.user ? '/dashboard' : '/login'}
-              className="hidden md:flex px-4 py-2.5 rounded-full glass-pill text-xs font-medium tracking-wider uppercase text-alabaster hover:border-white/40 transition items-center gap-2"
+              className="hidden md:flex px-4 py-2.5 rounded-full glass-pill text-xs font-medium tracking-wider uppercase text-alabaster hover:border-white/40 transition items-center gap-2 whitespace-nowrap shrink-0"
             >
               <span className={`w-2 h-2 rounded-full ${session?.user ? 'bg-emerald' : 'bg-titanium'}`} />
-              <span className="max-w-[140px] truncate">{session?.user ? `@${handle}` : 'Player Login'}</span>
+              <span className="max-w-[120px] truncate">{session?.user ? `@${handle}` : 'Player Login'}</span>
             </Link>
             <Link
               href="/reserve"
-              className="px-5 py-2.5 rounded-full bg-copper hover:bg-copperHover text-white font-semibold text-xs uppercase tracking-widest transition shadow-lg shadow-copper/25 flex items-center gap-2"
+              className="px-5 py-2.5 rounded-full bg-copper hover:bg-copperHover text-white font-semibold text-xs uppercase tracking-widest transition shadow-lg shadow-copper/25 flex items-center gap-2 whitespace-nowrap shrink-0"
             >
               <span>Get Pass</span>
               <span className="font-mono opacity-90">{price(150)}</span>

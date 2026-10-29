@@ -28,10 +28,10 @@ export function Photo({ src, alt, className = '', priority = false }: { src: str
       src={src}
       alt={alt}
       fill
+      unoptimized
       priority={priority}
       sizes="(max-width: 1024px) 100vw, 66vw"
       className={`object-cover object-center ${className}`}
-      onError={() => console.error(`Image failed to load: ${src}`)}
     />
   );
 }
@@ -68,7 +68,7 @@ export function ExportModal({ open, onClose }: { open: boolean; onClose: () => v
   return (
     <Modal open={open} onClose={onClose}>
       <h3 className="font-display font-black text-2xl uppercase text-white mb-1">9:16 PRO VS. ME HIGHLIGHT CARD</h3>
-      <p className="font-mono text-[10px] uppercase text-titanium mb-3">Split-screen comparison • Ready for Reels & TikTok</p>
+      <p className="font-mono text-[10px] uppercase text-titanium mb-3">Split-screen comparison • Ready for Douyin, TikTok & RedNote</p>
       <div className="rounded-xl overflow-hidden border border-white/20 aspect-[9/13] flex flex-col">
         <div className="relative h-1/2 border-b-2 border-copper p-3 flex items-end">
           <Photo src={IMG.bmxSunset} alt="World Champion Demo" className="brightness-75" />
